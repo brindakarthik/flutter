@@ -1,0 +1,48 @@
+CREATE TABLE Vehicle (
+    ID int,
+    name varchar(50) NOT NULL,
+    brand varchar(50),
+    Color varchar(50),
+    type varchar(20),
+    primary key(id)
+);
+
+
+CREATE TABLE user (
+    ID int,
+    name varchar(50) NOT NULL,
+    dob varchar(50),
+    phone bigint,
+    
+	primary key(id)
+);
+
+CREATE TABLE booking (
+    ID int,
+    vid int,
+    bdate varchar(50),
+    cid int,
+    primary key(id),
+    FOREIGN KEY (vid) REFERENCES vehicle(id),
+	FOREIGN KEY (cid) REFERENCES user(id)
+);
+
+CREATE TABLE branch (
+    ID int,
+    
+    name varchar(50),
+	primary key(id)
+)
+
+CREATE TABLE admin (
+    ID int,
+    
+    name varchar(50),
+    phone bigint,
+    bid int,
+
+    primary key(id),
+    FOREIGN KEY (bid) REFERENCES branch(id)
+)
+
+
